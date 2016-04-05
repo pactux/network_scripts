@@ -5,10 +5,10 @@
 
 usuario=$1
 
-# find user in the system
+# pesquisa pelo usuario no sistema
 grep -wi $usuario /etc/passwd &> /dev/null
 
-# check if the user exist
+# verifica se o usuario indicado existe
 if [ $? -eq 0 ];then
 	printf "\nO usuario \"%s\" existe no sistema.\n\n" $usuario
 else

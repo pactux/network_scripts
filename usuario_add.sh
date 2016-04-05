@@ -3,15 +3,13 @@
 # By pactux
 # You're free for to use and modify it!
 
-# check if user is ROOT
-
+# verifica se o usuário é ROOT
 if [ $EUID -ne 0 ]; then
 	printf "\nAcesso negado! Faça login como usuario \"root\" ou utilize \"sudo\".\n\n"
 	exit 1;
 fi
 
-### start functions ###
-# functions to create/remove a user, managing passwords and help
+### funções para gerenciamento dos usuários ###
 
 function adiciona
 {
@@ -72,19 +70,19 @@ function ajuda
 {
 	printf "\n\n*** Ajuda ***\n\n"
 	printf "Possiveis erros retornados (variavel de retorno):\n\n"
-	printf "1 - Erro de autenticacao do comando:\nPara usar o comando \"add_user.sh\", é necessario estar logado como ROOT\n\n"
+	printf "1 - Erro de autenticacao do comando:\nPara usar o comando \"usuario_add.sh\", é necessario estar logado como ROOT\n\n"
 }
 
-### end functions ###
+### fim das funções ###
 
 printf "\nGerenciador de usuarios:\n\n"
 
-# define PS3 variable and menu options
+# cria menu de opções
 PS3="Digite uma opção: "
 menu=("Adicionar" "Remover" "Configurar senha" "Ajuda" "Finalizar")
 sair="${#menu[@]}"
 
-# start the menu
+# inicia menu
 select opcao in "${menu[@]}";do
 	case $REPLY in
 		1)

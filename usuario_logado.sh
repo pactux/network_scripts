@@ -5,7 +5,7 @@
 
 usuario=$1
 
-# check if the user is logged
+# verifica se o usuario indicado está logado
 who | grep -wi $usuario &> /dev/null
 
 if [ $? -eq 0 ];then
